@@ -1,32 +1,27 @@
-body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #fdfdfd; color: #333; text-align: center; }
-.top-banner { background: #3f51b5; color: white; padding: 10px; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
-.header { background: white; padding: 15px 20px; display: flex; justify-content: space-between; font-weight: bold; font-size: 22px; border-bottom: 1px solid #eee; }
+body { font-family: sans-serif; margin: 0; background: #fff; text-align: center; }
+.top-banner { background: #000; color: #fff; padding: 10px; font-size: 12px; font-weight: bold; }
+.header { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #eee; }
+.logo { font-size: 22px; font-weight: bold; color: #3f51b5; }
+.logo span { color: #5c6bc0; }
 
-/* Product Grid */
-.container { display: flex; flex-wrap: wrap; justify-content: center; padding: 15px; gap: 15px; }
-.card { background: white; width: 45%; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); position: relative; border: 1px solid #f0f0f0; }
-.badge { position: absolute; top: 10px; left: 10px; background: #3f51b5; color: white; padding: 4px 8px; font-size: 10px; border-radius: 5px; font-weight: bold; }
-.card img { width: 100%; height: 160px; object-fit: cover; }
-.card-info { padding: 10px; text-align: left; }
-.card h3 { font-size: 14px; margin: 5px 0; height: 35px; overflow: hidden; color: #222; }
-.price { color: #3f51b5; font-weight: bold; font-size: 16px; margin: 5px 0; }
-.old { text-decoration: line-through; color: #999; font-size: 12px; margin-left: 5px; }
-.order-btn { background: #25d366; color: white; text-decoration: none; display: block; text-align: center; padding: 10px; border-radius: 8px; font-size: 11px; font-weight: bold; margin-top: 10px; }
+/* 4 Products Chote Cards */
+.container { display: flex; flex-wrap: wrap; justify-content: space-around; padding: 10px; }
+.card { width: 45%; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; padding: 5px; position: relative; }
+.card img { width: 100%; border-radius: 8px; }
+.card h3 { font-size: 13px; margin: 5px 0; }
+.save { position: absolute; top: 10px; left: 10px; background: #3f51b5; color: #fff; font-size: 10px; padding: 2px 5px; border-radius: 3px; }
 
-/* BLUE SECTION (WiserBlue Look) */
-.blue-trust-bar { background: #3f51b5; color: white; padding: 30px 20px; margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
-.trust-item { font-size: 12px; font-weight: 500; }
+/* 30-Day Guarantee */
+.guarantee-box { background: #f0f4ff; padding: 30px 20px; color: #3f51b5; margin: 20px 0; }
 
-/* GUARANTEE BOX */
-.guarantee-box { background: #e8eaf6; padding: 40px 20px; color: #1a237e; border-top: 2px solid #3f51b5; }
-.guarantee-box h2 { font-size: 20px; margin-top: 15px; }
-.guarantee-box p { font-size: 14px; line-height: 1.6; color: #444; max-width: 600px; margin: 10px auto; }
+/* Lambi Detail Section */
+.detail-block { padding: 20px; border-bottom: 1px solid #eee; text-align: left; }
+.detail-block img { width: 100%; border-radius: 15px; }
 
-/* REVIEWS */
-.review-area { padding: 40px 20px; background: white; }
-.review-card { background: #f9f9f9; padding: 25px; border-radius: 20px; border: 1px solid #eee; max-width: 500px; margin: 20px auto; }
-.stars { color: #ffca28; font-size: 20px; margin-bottom: 10px; }
+/* Blue Section */
+.blue-section { background: #5c6bc0; color: #fff; padding: 30px; line-height: 2; font-size: 14px; text-align: left; }
 
-/* FAQ */
-.faq-area { padding: 40px 20px; text-align: left; max-width: 600px; margin: 0 auto; }
-.faq-item { margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+/* Reviews & FAQs */
+.reviews, .faq-section { padding: 20px; text-align: left; }
+.review-card { background: #f9f9f9; padding: 15px; border-radius: 10px; margin-top: 10px; }
+details { border-bottom: 1px solid #eee; padding: 10px 0; }
