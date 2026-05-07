@@ -4,85 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Verma Lifestyle & Mart</title>
+    <title>Verma Mart</title>
 </head>
 <body>
-    <div class="top-banner">⚡ 45% OFF - FREE SHIPPING - CASH ON DELIVERY ⚡</div>
-
+    <div class="top-banner">⚡ 45% OFF - FREE SHIPPING ⚡</div>
+    
     <div class="header">
-        <span style="color:#3f51b5;">Verma<span style="color:#ffd700;">Mart</span></span>
+        <span class="logo">Verma<span>Mart</span></span>
         <span>🛒</span>
     </div>
 
-    <div class="container" id="product-container">
-        </div>
-
-    <div class="blue-trust-bar">
-        <div class="trust-item">🚚 <span>Free Shipping</span></div>
-        <div class="trust-item">💵 <span>Cash On Delivery</span></div>
-        <div class="trust-item">📞 <span>24/7 Support</span></div>
-        <div class="trust-item">🔒 <span>Secure Checkout</span></div>
-    </div>
+    <div class="container" id="product-container"></div>
 
     <div class="guarantee-box">
-        <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" width="70" alt="Guarantee">
         <h2>30-Day Risk-Free Guarantee!</h2>
-        <p>At Verma Mart, we prioritize your satisfaction. If you are not happy with your purchase, we will make it right. No questions asked!</p>
+        <p>At Verma Mart, customer satisfaction is our top priority. That's why we offer a 30-Day Risk-Free Guarantee on your purchase.</p>
     </div>
 
-    <div class="review-area">
-        <h2 style="color:#3f51b5;">What Our Customers Say!</h2>
+    <div id="long-details"></div>
+
+    <div class="blue-section">
+        <p>Free Shipping on ALL Orders</p>
+        <p>Cash On Delivery Available</p>
+        <p>24/7 Friendly Customer Support</p>
+        <p>100% Safe & Secure Checkout</p>
+    </div>
+
+    <div class="reviews">
+        <h3>See What Our Customers Have To Say!</h3>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <p>"Verma Mart se watch mangvayi, quality ek dum top hai aur delivery bhi fast thi. Best store!"</p>
-            <strong>- Annu (Verified Buyer)</strong>
+            <span>⭐⭐⭐⭐⭐</span>
+            <h4>Fast Delivery Service</h4>
+            <p>"Verma Mart ki delivery kaafi fast thi aur order safely pack hokar mila."</p>
+            <strong>- Annu (Delhi)</strong>
         </div>
     </div>
 
-    <div class="faq-area">
-        <h2 style="color:#3f51b5;">Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <strong>Is Cash on Delivery available?</strong>
-            <p>Yes, we offer COD all over India.</p>
-        </div>
-        <div class="faq-item">
-            <strong>What is the return policy?</strong>
-            <p>We provide a 30-day easy return and replacement policy.</p>
-        </div>
+    <div class="faq-section">
+        <h3>FAQs</h3>
+        <details><summary>What is your return policy?</summary><p>We offer a 30-day return policy.</p></details>
+        <details><summary>Is Cash on Delivery available?</summary><p>Yes, we offer COD on all orders.</p></details>
     </div>
-
-    <div style="padding: 20px; font-size: 12px; color: #999;">© 2024 Verma Lifestyle & Mart</div>
 
     <script>
         const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
 
-        async function loadProducts() {
-            try {
-                const res = await fetch(sheetURL);
-                const data = await res.text();
-                const rows = data.split('\n').slice(1);
-                const container = document.getElementById('product-container');
-                container.innerHTML = '';
+        async function loadData() {
+            const res = await fetch(sheetURL);
+            const data = await res.text();
+            const rows = data.split('\n').slice(1);
+            const container = document.getElementById('product-container');
+            const details = document.getElementById('long-details');
 
-                rows.forEach(row => {
-                    const cols = row.split(',');
-                    if (cols.length >= 4) {
-                        const name = cols[0], price = cols[1], img = cols[2].split('|')[0], desc = cols[3];
-                        container.innerHTML += `
-                            <div class="card">
-                                <span class="badge">SAVE 45%</span>
-                                <img src="${img.trim()}">
-                                <div class="card-info">
-                                    <h3>${name}</h3>
-                                    <p class="price">Rs. ${price} <span class="old">Rs. ${parseInt(price)+500}</span></p>
-                                    <a href="https://wa.me/91XXXXXXXXXX?text=Order:${name}" class="order-btn">ORDER ON WHATSAPP</a>
-                                </div>
-                            </div>`;
-                    }
-                });
-            } catch (e) { console.log(e); }
+            rows.forEach(row => {
+                const cols = row.split(',');
+                if (cols.length >= 4) {
+                    const name = cols[0], price = cols[1], img = cols[2].split('|')[0], desc = cols[3];
+                    
+                    // Chote Cards
+                    container.innerHTML += `
+                        <div class="card">
+                            <span class="save">SAVE 45%</span>
+                            <img src="${img.trim()}">
+                            <h3>${name}</h3>
+                            <p>Rs. ${price}</p>
+                        </div>`;
+                    
+                    // Lambi Detail
+                    details.innerHTML += `
+                        <div class="detail-block">
+                            <img src="${img.trim()}">
+                            <h3>Perfect for Home, Office & Travel</h3>
+                            <p>${desc}</p>
+                        </div>`;
+                }
+            });
         }
-        loadProducts();
+        loadData();
     </script>
 </body>
 </html>
