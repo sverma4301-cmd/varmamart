@@ -3,192 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verma Mart | Premium Store</title>
+    <title>Verma Mart | Premium Official Store</title>
     <style>
-        /* --- FULL PROFESSIONAL STYLING --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #ffffff; color: #333; line-height: 1.6; overflow-x: hidden; }
+        /* --- FULL DESIGN SYSTEM (AS PER SCREENSHOTS) --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        body { background: #ffffff; color: #333; line-height: 1.6; }
 
-        /* Top Notification Bar */
-        .promo-bar { background: #000; color: #fff; text-align: center; padding: 10px 0; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+        /* Top Black Promo Bar */
+        .promo-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
 
-        /* Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { font-size: 26px; font-weight: 800; color: #3f51b5; text-decoration: none; }
-        .logo span { color: #1a237e; }
-        .cart-icon { font-size: 24px; cursor: pointer; }
+        /* Branded Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #fff; border-bottom: 1px solid #eeeeee; position: sticky; top: 0; z-index: 1000; }
+        .brand-name { font-size: 22px; font-weight: 900; color: #3f51b5; letter-spacing: -1px; }
+        .brand-name span { color: #1a237e; }
 
-        /* --- PRODUCT GRID (Top Section) --- */
-        .main-container { max-width: 1300px; margin: 0 auto; padding: 30px 15px; }
-        .section-title { text-align: left; font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #1a237e; border-left: 5px solid #3f51b5; padding-left: 15px; }
-        
-        .grid-container { 
-            display: grid; 
-            gap: 20px; 
-            /* Mobile: 2 Cards | Laptop: 4 Cards */
-            grid-template-columns: repeat(2, 1fr); 
-        }
-        @media (min-width: 1024px) {
-            .grid-container { grid-template-columns: repeat(4, 1fr); }
-        }
+        /* Section Title Style */
+        .section-head { text-align: left; padding: 20px 5% 10px; font-size: 18px; font-weight: 800; color: #1a237e; text-transform: uppercase; }
 
-        .product-card { background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 12px; position: relative; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
-        .product-card .badge { position: absolute; top: 20px; left: 20px; background: #3f51b5; color: #fff; padding: 4px 10px; font-size: 11px; font-weight: bold; border-radius: 5px; }
-        .product-card h3 { font-size: 15px; margin: 12px 0 5px; color: #222; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-        .product-card .price-tag { display: flex; align-items: center; gap: 8px; }
-        .product-card .current-price { font-size: 18px; font-weight: 800; color: #3f51b5; }
-        .product-card .old-price { font-size: 14px; color: #999; text-decoration: line-through; }
+        /* 1. TOP PRODUCT GRID (4 CARDS) */
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
 
-        /* --- GUARANTEE SECTION (Wide) --- */
-        .guarantee-wrapper { background: #f5f8ff; border-top: 1px solid #e0e7ff; border-bottom: 1px solid #e0e7ff; padding: 60px 5%; margin: 40px 0; }
-        .guarantee-content { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
-        .guarantee-text { flex: 1; min-width: 300px; }
-        .guarantee-text h2 { font-size: 28px; color: #1a237e; margin-bottom: 15px; font-weight: 800; }
-        .guarantee-text p { font-size: 16px; color: #444; line-height: 1.8; }
-        .guarantee-icon { width: 100px; height: 100px; }
+        .small-card { border: 1px solid #f0f0f0; border-radius: 10px; padding: 8px; position: relative; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
+        .small-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
+        .small-card .sale-badge { position: absolute; top: 15px; left: 15px; background: #3f51b5; color: #fff; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; }
+        .small-card h3 { font-size: 12px; margin: 8px 0 4px; color: #222; height: 32px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .small-card .price-row { display: flex; align-items: center; gap: 5px; }
+        .small-card .new-p { font-size: 15px; font-weight: 800; color: #3f51b5; }
+        .small-card .old-p { font-size: 11px; color: #999; text-decoration: line-through; }
 
-        /* --- DETAILED PRODUCT LANDING (Long Section) --- */
-        .landing-section { max-width: 1000px; margin: 0 auto 80px auto; padding: 0 15px; }
-        .landing-block { margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
-        .landing-block img { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-bottom: 30px; }
-        .landing-info { text-align: left; }
-        .landing-info h2 { font-size: 32px; font-weight: 900; color: #111; margin-bottom: 15px; }
-        .landing-info p { font-size: 17px; color: #555; margin-bottom: 30px; line-height: 1.8; }
-        
-        /* WhatsApp Button Professional */
-        .order-button { 
-            background: #25d366; color: #fff; text-decoration: none; 
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            padding: 22px; border-radius: 15px; font-size: 20px; font-weight: 700;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .order-button:hover { transform: scale(1.02); background: #1ebe57; }
+        /* 2. GUARANTEE SECTION (Screenshot #3 & #4) */
+        .guarantee-container { background: #f4f7ff; padding: 50px 5%; margin: 30px 0; border-top: 1px solid #e0e7ff; border-bottom: 1px solid #e0e7ff; }
+        .guarantee-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 25px; }
+        .guarantee-inner img { width: 80px; height: 80px; }
+        .guarantee-text h2 { font-size: 22px; color: #1a237e; margin-bottom: 10px; font-weight: 800; }
+        .guarantee-text p { font-size: 14px; color: #444; line-height: 1.6; }
 
-        /* --- TRUST BADGES (Blue Section) --- */
-        .trust-footer { background: #3f51b5; color: #fff; padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .trust-item { text-align: left; }
-        .trust-item h4 { font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .trust-item p { font-size: 14px; opacity: 0.8; }
+        /* 3. LONG DETAIL LANDING SECTION (Screenshot #1 & #2) */
+        .landing-wrap { max-width: 800px; margin: 0 auto; padding: 0 5%; }
+        .detail-block { margin-bottom: 60px; border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
+        .detail-block img { width: 100%; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .detail-block h2 { font-size: 26px; font-weight: 800; color: #111; margin-bottom: 15px; text-align: left; }
+        .detail-block p { font-size: 16px; color: #555; margin-bottom: 25px; text-align: left; }
 
-        /* --- REVIEWS --- */
-        .review-container { max-width: 1200px; margin: 60px auto; padding: 0 15px; text-align: left; }
-        .review-card { background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
-        .stars { color: #ffca28; font-size: 18px; margin-bottom: 10px; }
+        /* ORDER BUTTON (GREEN & STICKY STYLE) */
+        .whatsapp-btn { background: #25d366; color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 700; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); transition: 0.3s; text-transform: uppercase; }
+        .whatsapp-btn:hover { background: #1ebe57; transform: translateY(-2px); }
+
+        /* 4. BLUE TRUST FOOTER (Screenshot #5) */
+        .blue-footer { background: #3f51b5; color: #fff; padding: 50px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px; }
+        .trust-box h4 { font-size: 17px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .trust-box p { font-size: 13px; opacity: 0.8; line-height: 1.5; }
+
+        /* 5. REVIEWS & FAQ (Screenshot #6) */
+        .extra-section { padding: 40px 5%; max-width: 900px; margin: 0 auto; text-align: left; }
+        .review-item { background: #f9f9f9; padding: 25px; border-radius: 15px; border: 1px solid #eee; margin-top: 20px; }
+        .stars { color: #ffca28; font-size: 16px; margin-bottom: 8px; }
+        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+        summary { font-weight: bold; cursor: pointer; padding: 5px 0; }
     </style>
 </head>
 <body>
 
-    <div class="promo-bar">⚡ Limited Time Offer: 45% OFF + Free Shipping ⚡</div>
+    <div class="promo-banner">⚡ SALE IS LIVE: 45% OFF + FREE SHIPPING ⚡</div>
 
     <header>
-        <a href="#" class="logo">Verma<span>Mart</span></a>
-        <div class="cart-icon">🛒</div>
+        <div class="brand-name">Verma<span>Mart</span></div>
+        <div style="font-size: 20px;">🛒</div>
     </header>
 
-    <div class="main-container">
-        <h2 class="section-title">Hamare Best Sellers</h2>
-        <div class="grid-container" id="product-grid">
-            </div>
-    </div>
+    <h2 class="section-head">Our Featured Products</h2>
+    <div class="product-grid" id="grid-content">
+        </div>
 
-    <div class="guarantee-wrapper">
-        <div class="guarantee-content">
-            <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" class="guarantee-icon" alt="Guarantee">
+    <div class="guarantee-container">
+        <div class="guarantee-inner">
+            <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" alt="Guarantee">
             <div class="guarantee-text">
                 <h2>30-Day Risk-Free Guarantee!</h2>
-                <p>Hum Verma Mart mein aapki quality aur bharose ka poora dhayan rakhte hain. Humara maksad aapko behtareen products sahi daam mein dena hai. Agar aapko koi bhi shikayat ho, hum use turant theek karenge. Happy Shopping!</p>
+                <p>Hum Verma Mart mein aapki quality aur satisfaction ki poori zimmedari lete hain. Humara maksad aapko best products aur fast delivery dena hai. Happy Shopping!</p>
             </div>
         </div>
     </div>
 
-    <div id="landing-container" class="landing-section">
+    <div class="landing-wrap" id="landing-details">
         </div>
 
-    <div class="trust-footer">
-        <div class="trust-item">
+    <div class="blue-footer">
+        <div class="trust-box">
             <h4>🚚 Free Shipping</h4>
-            <p>On all orders across India</p>
+            <p>Poore Bharat mein free delivery available hai.</p>
         </div>
-        <div class="trust-item">
+        <div class="trust-box">
             <h4>💵 Cash on Delivery</h4>
-            <p>Pay when you receive the product</p>
+            <p>Pehle maal check karein phir paise dein.</p>
         </div>
-        <div class="trust-item">
+        <div class="trust-box">
             <h4>📞 24/7 Support</h4>
-            <p>Dedicated customer service</p>
-        </div>
-        <div class="trust-item">
-            <h4>🔒 Secure Checkout</h4>
-            <p>100% protected payments</p>
+            <p>Humein kabhi bhi WhatsApp par contact karein.</p>
         </div>
     </div>
 
-    <div class="review-container">
-        <h2 class="section-title">Customer Kya Kehte Hain</h2>
-        <div class="review-card">
+    <div class="extra-section">
+        <h2 style="font-weight: 800;">Customer Reviews</h2>
+        <div class="review-item">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <h3 style="margin-bottom:10px">Super Quality!</h3>
-            <p>"Maine yahan se watch mangvayi thi, laptop par jaisi dikhi thi asliyat mein bhi waisi hi hai. Design bahut premium hai aur delivery fast thi."</p>
-            <p style="margin-top:15px"><strong>- Annu (Delhi, Verified Buyer)</strong></p>
+            <h4 style="margin-bottom:5px;">Badiya Quality!</h4>
+            <p style="font-size:14px; color:#666;">"Maine ye product mangvaya tha, quality ek dum top hai aur packaging bhi badiya thi. Highly recommended!"</p>
+            <p style="margin-top:10px; font-weight:bold;">- Annu (Delhi)</p>
+        </div>
+
+        <h2 style="font-weight: 800; margin-top: 40px;">FAQs</h2>
+        <div class="faq-item">
+            <details>
+                <summary>Delivery mein kitna time lagta hai?</summary>
+                <p style="padding:10px; font-size:14px; color:#666;">Aapka order 3-5 dino mein deliver ho jayega.</p>
+            </details>
         </div>
     </div>
 
     <script>
         const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
 
-        async function fetchStoreData() {
+        async function initStore() {
             try {
                 const response = await fetch(sheetURL);
                 const csvData = await response.text();
                 const rows = csvData.split('\n').slice(1);
                 
-                const grid = document.getElementById('product-grid');
-                const landing = document.getElementById('landing-container');
+                const grid = document.getElementById('grid-content');
+                const details = document.getElementById('landing-details');
 
                 rows.forEach(row => {
-                    const columns = row.split(',');
-                    if (columns.length >= 4) {
-                        const title = columns[0].trim();
-                        const price = columns[1].trim();
-                        const image = columns[2].split('|')[0].trim();
-                        const desc = columns[3].trim();
+                    const cols = row.split(',');
+                    if (cols.length >= 4) {
+                        const title = cols[0].trim();
+                        const price = cols[1].trim();
+                        const img = cols[2].split('|')[0].trim();
+                        const desc = cols[3].trim();
 
-                        // Create Top Grid Card
+                        // Grid Cards (TOP)
                         grid.innerHTML += `
-                            <div class="product-card">
-                                <div class="badge">SALE 45%</div>
-                                <img src="${image}" alt="${title}">
+                            <div class="small-card">
+                                <span class="sale-badge">SALE</span>
+                                <img src="${img}">
                                 <h3>${title}</h3>
-                                <div class="price-tag">
-                                    <span class="current-price">Rs. ${price}</span>
-                                    <span class="old-price">Rs. ${parseInt(price) + 500}</span>
+                                <div class="price-row">
+                                    <span class="new-p">Rs. ${price}</span>
+                                    <span class="old-p">Rs. ${parseInt(price)+500}</span>
                                 </div>
                             </div>
                         `;
 
-                        // Create Long Landing Block
-                        landing.innerHTML += `
-                            <div class="landing-block">
-                                <img src="${image}" alt="${title}">
-                                <div class="landing-info">
-                                    <h2>${title}</h2>
-                                    <p>${desc}</p>
-                                    <a href="https://wa.me/91XXXXXXXXXX?text=Hello, I want to order ${title}" class="order-button">
-                                        WhatsApp Par Order Karein (COD)
-                                    </a>
-                                </div>
+                        // Landing Section (BOTTOM)
+                        details.innerHTML += `
+                            <div class="detail-block">
+                                <img src="${img}">
+                                <h2>${title}</h2>
+                                <p>${desc}</p>
+                                <a href="https://wa.me/91XXXXXXXXXX?text=I want to order ${title}" class="whatsapp-btn">
+                                    Order via WhatsApp (COD)
+                                </a>
                             </div>
                         `;
                     }
                 });
-            } catch (err) {
-                console.error("Data fetch error:", err);
-            }
+            } catch (err) { console.error("Error loading CSV"); }
         }
-        fetchStoreData();
+        initStore();
     </script>
 </body>
 </html>
