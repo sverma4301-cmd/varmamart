@@ -5,129 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Verma Lifestyle & Mart</title>
-    <style>
-        /* Top Offer Banner */
-        .top-banner { background: #5c6bc0; color: white; padding: 10px; font-size: 14px; font-weight: bold; }
-        
-        /* Product Detail Page (Modal Full Screen) */
-        #detail-modal {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: white; z-index: 2000; overflow-y: auto; color: #333;
-        }
-        .modal-content { padding: 0; position: relative; }
-        .close-detail { position: absolute; top: 15px; left: 15px; font-size: 25px; background: white; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; z-index: 10; }
-        
-        /* WiserBlue Style Sections */
-        .guarantee-box { background: #f0f4ff; padding: 30px 20px; text-align: center; color: #3f51b5; }
-        .trust-icons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; background: #5c6bc0; color: white; }
-        .review-card { background: #f9f9f9; border-radius: 15px; padding: 20px; margin: 20px; border: 1px solid #eee; }
-        .faq-section { padding: 20px; background: white; }
-        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; }
-        
-        /* Floating Order Button */
-        .sticky-order { position: sticky; bottom: 0; background: white; padding: 15px; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); }
-    </style>
 </head>
 <body>
+    <div class="top-banner">⚡ 45% OFF - FREE SHIPPING - CASH ON DELIVERY ⚡</div>
 
-    <div class="top-banner">⚡ 45% OFF - FREE SHIPPING ⚡</div>
-    <div class="header" style="background:white; color:black; padding:15px; display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-size:24px; font-weight:bold; color:#3f51b5;">Verma<span style="color:#ffd700;">Mart</span></span>
+    <div class="header">
+        <span style="color:#3f51b5;">Verma<span style="color:#ffd700;">Mart</span></span>
         <span>🛒</span>
     </div>
 
-    <div class="container" id="product-container"></div>
+    <div class="container" id="product-container">
+        </div>
 
-    <div id="detail-modal">
-        <div class="modal-content">
-            <div class="close-detail" onclick="closeModal()">✕</div>
-            <div id="modal-body"></div>
-            
-            <div class="guarantee-box">
-                <h2>30-Day Risk-Free Guarantee!</h2>
-                <p>At Verma Mart, customer satisfaction is our top priority. Shop with confidence.</p>
-            </div>
+    <div class="blue-trust-bar">
+        <div class="trust-item">🚚 <span>Free Shipping</span></div>
+        <div class="trust-item">💵 <span>Cash On Delivery</span></div>
+        <div class="trust-item">📞 <span>24/7 Support</span></div>
+        <div class="trust-item">🔒 <span>Secure Checkout</span></div>
+    </div>
 
-            <div class="trust-icons">
-                <div>🚚 Free Shipping</div>
-                <div>💵 Cash on Delivery</div>
-                <div>📞 24/7 Support</div>
-                <div>🔒 100% Secure</div>
-            </div>
+    <div class="guarantee-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" width="70" alt="Guarantee">
+        <h2>30-Day Risk-Free Guarantee!</h2>
+        <p>At Verma Mart, we prioritize your satisfaction. If you are not happy with your purchase, we will make it right. No questions asked!</p>
+    </div>
 
-            <div class="review-card">
-                <h3>See What Our Customers Say!</h3>
-                <p style="color:#ffd700;">⭐⭐⭐⭐⭐</p>
-                <p>"Delivery bahut fast thi aur product safely mila. Overall experience bahut smooth raha."</p>
-                <strong>- Annu (Delhi)</strong>
-            </div>
-
-            <div class="faq-section">
-                <h2>FAQs</h2>
-                <div class="faq-item"><strong>What is your return policy?</strong><br>We offer a 30-day return policy.</div>
-                <div class="faq-item"><strong>Is Cash on Delivery available?</strong><br>Yes! We accept COD on all orders.</div>
-            </div>
-            
-            <div class="sticky-order" id="sticky-btn-container"></div>
+    <div class="review-area">
+        <h2 style="color:#3f51b5;">What Our Customers Say!</h2>
+        <div class="review-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Verma Mart se watch mangvayi, quality ek dum top hai aur delivery bhi fast thi. Best store!"</p>
+            <strong>- Annu (Verified Buyer)</strong>
         </div>
     </div>
+
+    <div class="faq-area">
+        <h2 style="color:#3f51b5;">Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <strong>Is Cash on Delivery available?</strong>
+            <p>Yes, we offer COD all over India.</p>
+        </div>
+        <div class="faq-item">
+            <strong>What is the return policy?</strong>
+            <p>We provide a 30-day easy return and replacement policy.</p>
+        </div>
+    </div>
+
+    <div style="padding: 20px; font-size: 12px; color: #999;">© 2024 Verma Lifestyle & Mart</div>
 
     <script>
         const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
 
         async function loadProducts() {
-            const res = await fetch(sheetURL);
-            const data = await res.text();
-            const rows = data.split('\n').slice(1);
-            const container = document.getElementById('product-container');
-            container.innerHTML = '';
+            try {
+                const res = await fetch(sheetURL);
+                const data = await res.text();
+                const rows = data.split('\n').slice(1);
+                const container = document.getElementById('product-container');
+                container.innerHTML = '';
 
-            rows.forEach(row => {
-                const cols = row.split(',');
-                if (cols.length >= 4) {
-                    const name = cols[0], price = cols[1], imgStr = cols[2], desc = cols[3], rating = cols[4];
-                    const firstImg = imgStr.split('|')[0];
-                    
-                    container.innerHTML += `
-                        <div class="card" style="background:white; color:black; border:none; box-shadow:0 2px 10px rgba(0,0,0,0.1);" onclick="openModal('${name}', '${price}', '${imgStr}', \`${desc}\`, '${rating}')">
-                            <div style="position:relative;">
-                                <span style="position:absolute; top:10px; left:10px; background:#5c6bc0; color:white; padding:4px 8px; font-size:10px; border-radius:3px;">SAVE 45%</span>
-                                <img src="${firstImg.trim()}" style="width:100%; border-radius:10px;">
-                            </div>
-                            <h3 style="margin:10px 0 5px 0;">${name}</h3>
-                            <p style="color:#3f51b5; font-size:18px; font-weight:bold;">Rs. ${price} <small style="text-decoration:line-through; color:#999; font-size:12px;">Rs. ${parseInt(price)+500}</small></p>
-                        </div>`;
-                }
-            });
+                rows.forEach(row => {
+                    const cols = row.split(',');
+                    if (cols.length >= 4) {
+                        const name = cols[0], price = cols[1], img = cols[2].split('|')[0], desc = cols[3];
+                        container.innerHTML += `
+                            <div class="card">
+                                <span class="badge">SAVE 45%</span>
+                                <img src="${img.trim()}">
+                                <div class="card-info">
+                                    <h3>${name}</h3>
+                                    <p class="price">Rs. ${price} <span class="old">Rs. ${parseInt(price)+500}</span></p>
+                                    <a href="https://wa.me/91XXXXXXXXXX?text=Order:${name}" class="order-btn">ORDER ON WHATSAPP</a>
+                                </div>
+                            </div>`;
+                    }
+                });
+            } catch (e) { console.log(e); }
         }
-
-        function openModal(name, price, imgStr, desc, rating) {
-            const imgs = imgStr.split('|');
-            let sliderHtml = '<div style="display:flex; overflow-x:auto; scroll-snap-type:x mandatory;">';
-            imgs.forEach(img => sliderHtml += `<img src="${img.trim()}" style="width:100%; flex:0 0 100%; scroll-snap-align:start;">`);
-            sliderHtml += '</div>';
-
-            document.getElementById('modal-body').innerHTML = `
-                ${sliderHtml}
-                <div style="padding:20px;">
-                    <h1 style="font-size:24px; margin-bottom:10px;">${name}</h1>
-                    <p style="color:#666; line-height:1.6;">${desc}</p>
-                </div>
-            `;
-            
-            document.getElementById('sticky-btn-container').innerHTML = `
-                <a href="https://wa.me/91XXXXXXXXXX?text=Order:${name}" class="buy-btn" style="background:#3f51b5; display:block; text-align:center; padding:15px; border-radius:10px; color:white; text-decoration:none; font-weight:bold;">ORDER NOW - CASH ON DELIVERY</a>
-            `;
-
-            document.getElementById('detail-modal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            document.getElementById('detail-modal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
         loadProducts();
     </script>
 </body>
