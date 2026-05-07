@@ -1,27 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Panel - Verma Mart</title>
-    <style>
-        body { background: #121212; color: white; font-family: sans-serif; text-align: center; padding: 50px; }
-        .form-box { background: #1e1e1e; padding: 30px; border-radius: 10px; display: inline-block; border: 1px solid #48dbfb; }
-        input { display: block; width: 300px; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
-        button { background: #48dbfb; color: black; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Verma Lifestyle & Mart</title>
 </head>
 <body>
-    <h1>Add New Product</h1>
-    <div class="form-box">
-        <input type="text" id="pName" placeholder="Product Name (e.g. Stylish Shoes)">
-        <input type="text" id="pPrice" placeholder="Price (e.g. 999)">
-        <input type="text" id="pImg" placeholder="Image URL (Link copy karke dalo)">
-        <button onclick="addProduct()">Website Pe Daalo</button>
+    <div class="header">Verma Lifestyle & Mart</div>
+    <div class="container" id="product-container">
+        <p>Dukan Saj rahi hai, thoda ruko...</p>
     </div>
 
     <script>
-        function addProduct() {
-            alert("Bhai, abhi hume Firebase connect karna hai! Pehle setup check kar lo.");
+        // GOOGLE SHEET KA "PUBLISH TO WEB" WALA CSV LINK YAHAN DALO
+        const sheetURL = 'TUMHARA_CSV_LINK_YAHAN_PASTE_KARO';
+
+        async function loadProducts() {
+            try {
+                const res = await fetch(sheetURL);
+                const data = await res.text();
+                const rows = data.split('\n').slice(1); 
+                const container = document.getElementById('product-container');
+                container.innerHTML = '';
+
+                rows.forEach(row => {
+                    const cols = row.split(',');
+                    if (cols.length >= 5) {
+                        const name = cols[0];
+                        const price = cols[1];
+                        const img = cols[2];
+                        const desc = cols[3];
+                        const rating = parseInt(cols[4]);
+
+                        let stars = '';
+                        for(let i=0; i<5; i++) {
+                            stars += i < rating ? '⭐' : '☆';
+                        }
+
+                        container.innerHTML += `
+                            <div class="card">
+                                <img src="${img}" alt="${name}">
+                                <div class="rating">${stars}</div>
+                                <h3>${name}</h3>
+                                <p class="desc">${desc}</p>
+                                <p class="price">₹${price}</p>
+                                <a href="https://wa.me/91XXXXXXXXXX?text=Order:${name}" class="buy-btn">WhatsApp Order</a>
+                            </div>`;
+                    }
+                });
+            } catch (e) {
+                console.log("Error loading data");
+            }
         }
+        loadProducts();
     </script>
 </body>
 </html>
