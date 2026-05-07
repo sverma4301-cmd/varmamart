@@ -1,15 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <title>Verma Lifestyle & Mart</title>
 </head>
 <body>
-    <h1>Verma Lifestyle & Mart</h1>
-    <div class="product">
-        <img src="https://via.placeholder.com/150">
-        <h3>Sample Product</h3>
-        <p>Price: ₹500</p>
-        <a href="https://wa.me/91XXXXXXXXXX?text=Order" class="btn">Buy on WhatsApp</a>
+    <div class="header">Verma Lifestyle & Mart</div>
+    <div class="container" id="product-container">
+        <p>Dukan ki thali saj rahi hai...</p>
     </div>
+
+    <script>
+        // Maine tera link yahan khud daal diya hai bhai
+        const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
+
+        async function loadProducts() {
+            try {
+                const res = await fetch(sheetURL);
+                const data = await res.text();
+                const rows = data.split('\n').slice(1); 
+                const container = document.getElementById('product-container');
+                container.innerHTML = '';
+
+                rows.forEach(row => {
+                    const cols = row.split(',');
+                    if (cols.length >= 4) {
+                        const name = cols[0];
+                        const price = cols[1];
+                        const img = cols[2];
+                        const desc = cols[3];
+                        const rating = parseInt(cols[4]) || 5;
+
+                        let stars = '';
+                        for(let i=0; i<5; i++) {
+                            stars += i < rating ? '⭐' : '☆';
+                        }
+
+                        container.innerHTML += `
+                            <div class="card">
+                                <img src="${img.trim()}" alt="${name}">
+                                <div class="rating">${stars}</div>
+                                <h3>${name}</h3>
+                                <p class="desc">${desc}</p>
+                                <p class="price">₹${price}</p>
+                                <a href="https://wa.me/91XXXXXXXXXX?text=Order:${name}" class="buy-btn">WhatsApp Order</a>
+                            </div>`;
+                    }
+                });
+            } catch (e) {
+                console.log("Error loading data");
+            }
+        }
+        loadProducts();
+    </script>
 </body>
 </html>
