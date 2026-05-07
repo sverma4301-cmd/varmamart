@@ -3,174 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verma Mart | Premium Official Store</title>
+    <title>Bharma Lifestyle Mart | Premium Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* --- FULL DESIGN SYSTEM (AS PER SCREENSHOTS) --- */
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
-        body { background: #ffffff; color: #333; line-height: 1.6; }
-
-        /* Top Black Promo Bar */
-        .promo-banner { background: #000; color: #fff; text-align: center; padding: 10px; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; }
-
-        /* Branded Header */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: #fff; border-bottom: 1px solid #eeeeee; position: sticky; top: 0; z-index: 1000; }
-        .brand-name { font-size: 22px; font-weight: 900; color: #3f51b5; letter-spacing: -1px; }
-        .brand-name span { color: #1a237e; }
-
-        /* Section Title Style */
-        .section-head { text-align: left; padding: 20px 5% 10px; font-size: 18px; font-weight: 800; color: #1a237e; text-transform: uppercase; }
-
-        /* 1. TOP PRODUCT GRID (4 CARDS) */
-        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
-        @media (min-width: 1024px) { .product-grid { grid-template-columns: repeat(4, 1fr); } }
-
-        .small-card { border: 1px solid #f0f0f0; border-radius: 10px; padding: 8px; position: relative; background: #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.03); }
-        .small-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 8px; }
-        .small-card .sale-badge { position: absolute; top: 15px; left: 15px; background: #3f51b5; color: #fff; padding: 3px 8px; font-size: 9px; font-weight: bold; border-radius: 4px; }
-        .small-card h3 { font-size: 12px; margin: 8px 0 4px; color: #222; height: 32px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
-        .small-card .price-row { display: flex; align-items: center; gap: 5px; }
-        .small-card .new-p { font-size: 15px; font-weight: 800; color: #3f51b5; }
-        .small-card .old-p { font-size: 11px; color: #999; text-decoration: line-through; }
-
-        /* 2. GUARANTEE SECTION (Screenshot #3 & #4) */
-        .guarantee-container { background: #f4f7ff; padding: 50px 5%; margin: 30px 0; border-top: 1px solid #e0e7ff; border-bottom: 1px solid #e0e7ff; }
-        .guarantee-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; gap: 25px; }
-        .guarantee-inner img { width: 80px; height: 80px; }
-        .guarantee-text h2 { font-size: 22px; color: #1a237e; margin-bottom: 10px; font-weight: 800; }
-        .guarantee-text p { font-size: 14px; color: #444; line-height: 1.6; }
-
-        /* 3. LONG DETAIL LANDING SECTION (Screenshot #1 & #2) */
-        .landing-wrap { max-width: 800px; margin: 0 auto; padding: 0 5%; }
-        .detail-block { margin-bottom: 60px; border-bottom: 1px solid #f0f0f0; padding-bottom: 40px; }
-        .detail-block img { width: 100%; border-radius: 15px; margin-bottom: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-        .detail-block h2 { font-size: 26px; font-weight: 800; color: #111; margin-bottom: 15px; text-align: left; }
-        .detail-block p { font-size: 16px; color: #555; margin-bottom: 25px; text-align: left; }
-
-        /* ORDER BUTTON (GREEN & STICKY STYLE) */
-        .whatsapp-btn { background: #25d366; color: #fff; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 700; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); transition: 0.3s; text-transform: uppercase; }
-        .whatsapp-btn:hover { background: #1ebe57; transform: translateY(-2px); }
-
-        /* 4. BLUE TRUST FOOTER (Screenshot #5) */
-        .blue-footer { background: #3f51b5; color: #fff; padding: 50px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 50px; }
-        .trust-box h4 { font-size: 17px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .trust-box p { font-size: 13px; opacity: 0.8; line-height: 1.5; }
-
-        /* 5. REVIEWS & FAQ (Screenshot #6) */
-        .extra-section { padding: 40px 5%; max-width: 900px; margin: 0 auto; text-align: left; }
-        .review-item { background: #f9f9f9; padding: 25px; border-radius: 15px; border: 1px solid #eee; margin-top: 20px; }
-        .stars { color: #ffca28; font-size: 16px; margin-bottom: 8px; }
-        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; }
-        summary { font-weight: bold; cursor: pointer; padding: 5px 0; }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .heading { font-family: 'Playfair Display', serif; }
+        .product-card { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        .product-card:hover {
+            transform: translateY(-20px);
+            box-shadow: 0 40px 70px -20px rgba(212, 175, 55, 0.25);
+        }
+        .luxury-bg { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000'); background-size: cover; background-attachment: fixed; }
     </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-white">
 
-    <div class="promo-banner">⚡ SALE IS LIVE: 45% OFF + FREE SHIPPING ⚡</div>
+    <div class="bg-black py-3 text-center text-sm tracking-widest font-medium border-b border-zinc-800">
+        ⚡ 45% OFF - FREE SHIPPING ON ALL ORDERS ⚡
+    </div>
 
-    <header>
-        <div class="brand-name">Verma<span>Mart</span></div>
-        <div style="font-size: 20px;">🛒</div>
-    </header>
-
-    <h2 class="section-head">Our Featured Products</h2>
-    <div class="product-grid" id="grid-content">
-        </div>
-
-    <div class="guarantee-container">
-        <div class="guarantee-inner">
-            <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" alt="Guarantee">
-            <div class="guarantee-text">
-                <h2>30-Day Risk-Free Guarantee!</h2>
-                <p>Hum Verma Mart mein aapki quality aur satisfaction ki poori zimmedari lete hain. Humara maksad aapko best products aur fast delivery dena hai. Happy Shopping!</p>
+    <nav class="bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-3xl flex items-center justify-center text-black text-4xl font-bold">B</div>
+                <div>
+                    <h1 class="heading text-3xl tracking-tighter">Bharma</h1>
+                    <p class="text-amber-400 text-xs tracking-[3px] -mt-1">LIFESTYLE MART</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-6">
+                <i class="fa-solid fa-magnifying-glass text-xl cursor-pointer hover:text-amber-400"></i>
+                <div class="relative cursor-pointer">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-amber-400 text-black text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                </div>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <div class="landing-wrap" id="landing-details">
+    <section class="luxury-bg py-32 text-center border-b border-zinc-800">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="heading text-5xl md:text-7xl font-bold mb-6">30-DAY RISK-FREE GUARANTEE!</h2>
+            <p class="text-xl text-gray-300">At Bharma Lifestyle Mart, customer satisfaction is our top priority. Not satisfied? Return within 30 days.</p>
         </div>
+    </section>
 
-    <div class="blue-footer">
-        <div class="trust-box">
-            <h4>🚚 Free Shipping</h4>
-            <p>Poore Bharat mein free delivery available hai.</p>
-        </div>
-        <div class="trust-box">
-            <h4>💵 Cash on Delivery</h4>
-            <p>Pehle maal check karein phir paise dein.</p>
-        </div>
-        <div class="trust-box">
-            <h4>📞 24/7 Support</h4>
-            <p>Humein kabhi bhi WhatsApp par contact karein.</p>
-        </div>
-    </div>
+    <section id="products" class="max-w-7xl mx-auto px-6 py-24">
+        <h2 class="heading text-5xl font-bold text-center mb-16 underline decoration-amber-400 underline-offset-8">Signature Collection</h2>
+        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
+            </div>
+    </section>
 
-    <div class="extra-section">
-        <h2 style="font-weight: 800;">Customer Reviews</h2>
-        <div class="review-item">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <h4 style="margin-bottom:5px;">Badiya Quality!</h4>
-            <p style="font-size:14px; color:#666;">"Maine ye product mangvaya tha, quality ek dum top hai aur packaging bhi badiya thi. Highly recommended!"</p>
-            <p style="margin-top:10px; font-weight:bold;">- Annu (Delhi)</p>
+    <section class="bg-zinc-900 py-24 border-y border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="heading text-5xl font-bold mb-8">Perfect for Home, Office & Travel</h2>
+            <p class="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">Whether you are at home, in the office, or on the go, our products are designed to keep you cool and comfortable with unmatched elegance.</p>
         </div>
+    </section>
 
-        <h2 style="font-weight: 800; margin-top: 40px;">FAQs</h2>
-        <div class="faq-item">
-            <details>
-                <summary>Delivery mein kitna time lagta hai?</summary>
-                <p style="padding:10px; font-size:14px; color:#666;">Aapka order 3-5 dino mein deliver ho jayega.</p>
-            </details>
+    <section class="py-24 bg-black">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="heading text-5xl font-bold mb-16">What Our Customers Say</h2>
+            <div class="bg-zinc-900 border border-zinc-800 rounded-[40px] p-12">
+                <div class="text-4xl text-amber-400 mb-8">★★★★★</div>
+                <p class="text-2xl italic text-gray-200">"Delivery bahut fast thi aur product quality bahut acchi hai. Best for premium home styling."</p>
+                <p class="mt-10 font-bold text-amber-400 text-lg uppercase tracking-widest">- Annu (Delhi)</p>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <footer class="bg-black py-20 border-t border-zinc-800">
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500">
+            <div class="mb-8">
+                <h2 class="heading text-3xl text-white">Bharma Lifestyle Mart</h2>
+                <p class="mt-2 tracking-widest text-xs">PREMIUM QUALITY GUARANTEED</p>
+            </div>
+            <p>© 2026 Bharma Lifestyle Mart | All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script>
-        const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
+        // SHEET URL FIX:
+        const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv";
 
-        async function initStore() {
+        async function loadProducts() {
+            const container = document.getElementById('product-grid');
+            container.innerHTML = `<p class="col-span-2 text-center py-12 text-amber-400 animate-pulse text-2xl font-bold">Loading Premium Collection...</p>`;
+
             try {
-                const response = await fetch(sheetURL);
-                const csvData = await response.text();
-                const rows = csvData.split('\n').slice(1);
-                
-                const grid = document.getElementById('grid-content');
-                const details = document.getElementById('landing-details');
+                const res = await fetch(SHEET_URL);
+                const text = await res.text();
+                // Split logic for proper CSV reading
+                const rows = text.split('\n').map(row => row.split(',').map(c => c.trim().replace(/^"|"$/g, '')));
 
-                rows.forEach(row => {
-                    const cols = row.split(',');
-                    if (cols.length >= 4) {
-                        const title = cols[0].trim();
-                        const price = cols[1].trim();
-                        const img = cols[2].split('|')[0].trim();
-                        const desc = cols[3].trim();
+                container.innerHTML = "";
 
-                        // Grid Cards (TOP)
-                        grid.innerHTML += `
-                            <div class="small-card">
-                                <span class="sale-badge">SALE</span>
-                                <img src="${img}">
-                                <h3>${title}</h3>
-                                <div class="price-row">
-                                    <span class="new-p">Rs. ${price}</span>
-                                    <span class="old-p">Rs. ${parseInt(price)+500}</span>
+                for (let i = 1; i < rows.length; i++) {
+                    const r = rows[i];
+                    if (!r[0] || r[0] === "Name") continue;
+
+                    const name = r[0];
+                    const price = r[1];
+                    const image = r[2] ? r[2].split('|')[0] : 'https://picsum.photos/800/600';
+                    const desc = r[3] || "Experience the ultimate lifestyle upgrade.";
+
+                    // HTML Template Fix (using template literals correctly)
+                    const card = `
+                        <div class="product-card bg-zinc-900 rounded-[40px] overflow-hidden border border-zinc-800 hover:border-amber-400/50">
+                            <div class="relative group">
+                                <img src="${image}" class="w-full h-[450px] object-cover transition duration-700 group-hover:scale-110" alt="${name}">
+                                <div class="absolute top-6 left-6 bg-amber-400 text-black px-5 py-2 rounded-full font-bold text-xs">EXCLUSIVELY AT BHARMA</div>
+                            </div>
+                            <div class="p-10">
+                                <h3 class="heading text-3xl font-bold mb-4">${name}</h3>
+                                <p class="text-gray-400 mb-8 line-clamp-2">${desc}</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-4xl font-bold text-white">₹${price}</span>
+                                    <button onclick="orderWhatsApp('${name}')" class="bg-white text-black px-10 py-5 rounded-2xl font-bold hover:bg-amber-400 hover:scale-105 transition-all duration-300">
+                                        BUY NOW (COD)
+                                    </button>
                                 </div>
                             </div>
-                        `;
-
-                        // Landing Section (BOTTOM)
-                        details.innerHTML += `
-                            <div class="detail-block">
-                                <img src="${img}">
-                                <h2>${title}</h2>
-                                <p>${desc}</p>
-                                <a href="https://wa.me/91XXXXXXXXXX?text=I want to order ${title}" class="whatsapp-btn">
-                                    Order via WhatsApp (COD)
-                                </a>
-                            </div>
-                        `;
-                    }
-                });
-            } catch (err) { console.error("Error loading CSV"); }
+                        </div>`;
+                    container.innerHTML += card;
+                }
+            } catch (e) {
+                container.innerHTML = `<p class="col-span-2 text-red-400 text-center py-12">Sheet connection error. Check if Published to Web.</p>`;
+            }
         }
-        initStore();
+
+        function orderWhatsApp(prodName) {
+            const msg = encodeURIComponent(`Hello Bharma Mart, I want to order: ${prodName}`);
+            window.location.href = `https://wa.me/91XXXXXXXXXX?text=${msg}`;
+        }
+
+        window.onload = loadProducts;
     </script>
 </body>
 </html>
