@@ -3,127 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verma Mart - Official Store</title>
+    <title>Verma Mart | Premium Store</title>
     <style>
-        /* POORA DESIGN VIDEO JAISA */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; text-align: center; }
+        /* --- FULL PROFESSIONAL STYLING --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #ffffff; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* Top Notification Bar */
+        .promo-bar { background: #000; color: #fff; text-align: center; padding: 10px 0; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+        /* Header */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: #fff; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 26px; font-weight: 800; color: #3f51b5; text-decoration: none; }
+        .logo span { color: #1a237e; }
+        .cart-icon { font-size: 24px; cursor: pointer; }
+
+        /* --- PRODUCT GRID (Top Section) --- */
+        .main-container { max-width: 1300px; margin: 0 auto; padding: 30px 15px; }
+        .section-title { text-align: left; font-size: 22px; font-weight: 700; margin-bottom: 20px; color: #1a237e; border-left: 5px solid #3f51b5; padding-left: 15px; }
         
-        .top-banner { background: #000; color: #fff; padding: 8px; font-size: 11px; font-weight: bold; }
-        .header { padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; font-weight: bold; font-size: 20px; }
-        .logo { color: #3f51b5; } .logo span { color: #5c6bc0; }
+        .grid-container { 
+            display: grid; 
+            gap: 20px; 
+            /* Mobile: 2 Cards | Laptop: 4 Cards */
+            grid-template-columns: repeat(2, 1fr); 
+        }
+        @media (min-width: 1024px) {
+            .grid-container { grid-template-columns: repeat(4, 1fr); }
+        }
 
-        /* 4 CHOTE CARDS (PEHLE WALA LOOK) */
-        .grid-container { display: flex; flex-wrap: wrap; justify-content: space-around; padding: 10px; gap: 8px; }
-        .small-card { width: 46%; border: 1px solid #eee; border-radius: 8px; padding: 5px; position: relative; background: #fff; }
-        .small-card img { width: 100%; border-radius: 5px; height: 110px; object-fit: cover; }
-        .small-card h3 { font-size: 11px; margin: 5px 0; height: 28px; overflow: hidden; }
-        .small-card .price { color: #3f51b5; font-weight: bold; font-size: 13px; }
-        .save-tag { position: absolute; top: 5px; left: 5px; background: #3f51b5; color: #fff; font-size: 8px; padding: 2px 5px; border-radius: 3px; z-index: 2; }
+        .product-card { background: #fff; border: 1px solid #f0f0f0; border-radius: 12px; padding: 12px; position: relative; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+        .product-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 10px; }
+        .product-card .badge { position: absolute; top: 20px; left: 20px; background: #3f51b5; color: #fff; padding: 4px 10px; font-size: 11px; font-weight: bold; border-radius: 5px; }
+        .product-card h3 { font-size: 15px; margin: 12px 0 5px; color: #222; height: 40px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .product-card .price-tag { display: flex; align-items: center; gap: 8px; }
+        .product-card .current-price { font-size: 18px; font-weight: 800; color: #3f51b5; }
+        .product-card .old-price { font-size: 14px; color: #999; text-decoration: line-through; }
 
-        /* BLUE GUARANTEE BOX (THEEK VIDEO JAISA) */
-        .guarantee-box { background: #f0f4ff; padding: 25px 20px; color: #3f51b5; margin: 15px 0; text-align: left; border-left: 5px solid #3f51b5; }
-        .guarantee-box h2 { font-size: 17px; margin-bottom: 8px; font-weight: bold; }
-        .guarantee-box p { font-size: 13px; line-height: 1.4; color: #444; }
+        /* --- GUARANTEE SECTION (Wide) --- */
+        .guarantee-wrapper { background: #f5f8ff; border-top: 1px solid #e0e7ff; border-bottom: 1px solid #e0e7ff; padding: 60px 5%; margin: 40px 0; }
+        .guarantee-content { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 30px; flex-wrap: wrap; }
+        .guarantee-text { flex: 1; min-width: 300px; }
+        .guarantee-text h2 { font-size: 28px; color: #1a237e; margin-bottom: 15px; font-weight: 800; }
+        .guarantee-text p { font-size: 16px; color: #444; line-height: 1.8; }
+        .guarantee-icon { width: 100px; height: 100px; }
 
-        /* LAMBI DETAIL SECTION (BADI PHOTOS) */
-        .long-detail { padding-bottom: 30px; border-bottom: 8px solid #f5f5f5; text-align: left; }
-        .long-detail img { width: 100%; display: block; margin-bottom: 15px; }
-        .detail-text { padding: 0 15px; }
-        .detail-text h3 { font-size: 22px; margin-bottom: 10px; color: #222; }
-        .detail-text p { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 15px; }
+        /* --- DETAILED PRODUCT LANDING (Long Section) --- */
+        .landing-section { max-width: 1000px; margin: 0 auto 80px auto; padding: 0 15px; }
+        .landing-block { margin-bottom: 60px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
+        .landing-block img { width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .landing-info { text-align: left; }
+        .landing-info h2 { font-size: 32px; font-weight: 900; color: #111; margin-bottom: 15px; }
+        .landing-info p { font-size: 17px; color: #555; margin-bottom: 30px; line-height: 1.8; }
         
-        /* ORDER BUTTON (GREEN & BIG) */
-        .wa-order-btn { background: #25d366; color: white; text-decoration: none; display: block; text-align: center; padding: 16px; border-radius: 10px; font-weight: bold; font-size: 17px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 10px; }
+        /* WhatsApp Button Professional */
+        .order-button { 
+            background: #25d366; color: #fff; text-decoration: none; 
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 22px; border-radius: 15px; font-size: 20px; font-weight: 700;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .order-button:hover { transform: scale(1.02); background: #1ebe57; }
 
-        /* BLUE TRUST BAR (THEEK VIDEO JAISA) */
-        .blue-trust-bar { background: #3f51b5; color: #fff; padding: 35px 20px; text-align: left; line-height: 2.4; font-size: 14px; font-weight: 500; }
+        /* --- TRUST BADGES (Blue Section) --- */
+        .trust-footer { background: #3f51b5; color: #fff; padding: 60px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .trust-item { text-align: left; }
+        .trust-item h4 { font-size: 18px; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .trust-item p { font-size: 14px; opacity: 0.8; }
 
-        /* REVIEWS & FAQ */
-        .section-box { padding: 25px 15px; text-align: left; }
-        .rev-card { background: #f9f9f9; padding: 15px; border-radius: 10px; border: 1px solid #eee; margin-top: 10px; }
-        .stars { color: #ffca28; font-size: 14px; }
-        summary { font-weight: bold; padding: 12px 0; border-bottom: 1px solid #eee; cursor: pointer; list-style: none; font-size: 15px; }
+        /* --- REVIEWS --- */
+        .review-container { max-width: 1200px; margin: 60px auto; padding: 0 15px; text-align: left; }
+        .review-card { background: #fff; border: 1px solid #eee; padding: 30px; border-radius: 15px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.02); }
+        .stars { color: #ffca28; font-size: 18px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <div class="top-banner">⚡ 45% OFF - FREE SHIPPING - CASH ON DELIVERY ⚡</div>
-    <div class="header"><span class="logo">Verma<span>Mart</span></span><span>🛒</span></div>
+    <div class="promo-bar">⚡ Limited Time Offer: 45% OFF + Free Shipping ⚡</div>
 
-    <div class="grid-container" id="grid"></div>
+    <header>
+        <a href="#" class="logo">Verma<span>Mart</span></a>
+        <div class="cart-icon">🛒</div>
+    </header>
 
-    <div class="guarantee-box">
-        <h2>30-Day Risk-Free Guarantee!</h2>
-        <p>At Verma Mart, customer satisfaction is our top priority. We offer a 30-Day Risk-Free Guarantee to ensure you are 100% happy with your purchase.</p>
+    <div class="main-container">
+        <h2 class="section-title">Hamare Best Sellers</h2>
+        <div class="grid-container" id="product-grid">
+            </div>
     </div>
 
-    <div id="details"></div>
-
-    <div class="blue-trust-bar">
-        <div>🚚 Free Shipping on ALL Orders</div>
-        <div>💵 Cash On Delivery Available</div>
-        <div>📞 24/7 Friendly Customer Support</div>
-        <div>🔒 100% Safe & Secure Checkout</div>
-    </div>
-
-    <div class="section-box">
-        <h3 style="color:#3f51b5;">See What Our Customers Say!</h3>
-        <div class="rev-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <h4 style="margin:5px 0">Fast Delivery Service</h4>
-            <p style="font-size:13px; color:#666">"Product ki quality ek dum badiya hai aur delivery Delhi mein sirf 2 din mein mil gayi. Very happy!"</p>
-            <p style="margin-top:8px"><strong>- Annu (Verified Buyer)</strong></p>
+    <div class="guarantee-wrapper">
+        <div class="guarantee-content">
+            <img src="https://cdn-icons-png.flaticon.com/512/9333/9333990.png" class="guarantee-icon" alt="Guarantee">
+            <div class="guarantee-text">
+                <h2>30-Day Risk-Free Guarantee!</h2>
+                <p>Hum Verma Mart mein aapki quality aur bharose ka poora dhayan rakhte hain. Humara maksad aapko behtareen products sahi daam mein dena hai. Agar aapko koi bhi shikayat ho, hum use turant theek karenge. Happy Shopping!</p>
+            </div>
         </div>
     </div>
 
-    <div class="section-box">
-        <h3 style="color:#3f51b5; margin-bottom:10px;">FAQs</h3>
-        <details><summary>What is your return policy?</summary><p style="padding:10px; font-size:13px; color:#666;">We provide a 30-day easy return policy.</p></details>
-        <details><summary>Is COD available?</summary><p style="padding:10px; font-size:13px; color:#666;">Yes, Cash on Delivery is available for all orders.</p></details>
+    <div id="landing-container" class="landing-section">
+        </div>
+
+    <div class="trust-footer">
+        <div class="trust-item">
+            <h4>🚚 Free Shipping</h4>
+            <p>On all orders across India</p>
+        </div>
+        <div class="trust-item">
+            <h4>💵 Cash on Delivery</h4>
+            <p>Pay when you receive the product</p>
+        </div>
+        <div class="trust-item">
+            <h4>📞 24/7 Support</h4>
+            <p>Dedicated customer service</p>
+        </div>
+        <div class="trust-item">
+            <h4>🔒 Secure Checkout</h4>
+            <p>100% protected payments</p>
+        </div>
+    </div>
+
+    <div class="review-container">
+        <h2 class="section-title">Customer Kya Kehte Hain</h2>
+        <div class="review-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <h3 style="margin-bottom:10px">Super Quality!</h3>
+            <p>"Maine yahan se watch mangvayi thi, laptop par jaisi dikhi thi asliyat mein bhi waisi hi hai. Design bahut premium hai aur delivery fast thi."</p>
+            <p style="margin-top:15px"><strong>- Annu (Delhi, Verified Buyer)</strong></p>
+        </div>
     </div>
 
     <script>
         const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRbNWMbqGmVdZI7dEU1e8UfzPxp9JHCRu7zN-yer372okhZ8cd0Ias6cMkqSBvcYxjQgx-VL7IXRwfu/pub?output=csv';
 
-        async function loadStore() {
+        async function fetchStoreData() {
             try {
-                const res = await fetch(sheetURL);
-                const data = await res.text();
-                const rows = data.split('\n').slice(1);
+                const response = await fetch(sheetURL);
+                const csvData = await response.text();
+                const rows = csvData.split('\n').slice(1);
                 
-                const grid = document.getElementById('grid');
-                const details = document.getElementById('details');
+                const grid = document.getElementById('product-grid');
+                const landing = document.getElementById('landing-container');
 
                 rows.forEach(row => {
-                    const cols = row.split(',');
-                    if (cols.length >= 4) {
-                        const name = cols[0], price = cols[1], img = cols[2].split('|')[0], desc = cols[3];
+                    const columns = row.split(',');
+                    if (columns.length >= 4) {
+                        const title = columns[0].trim();
+                        const price = columns[1].trim();
+                        const image = columns[2].split('|')[0].trim();
+                        const desc = columns[3].trim();
 
-                        // 1. Chote Cards Load Karein
+                        // Create Top Grid Card
                         grid.innerHTML += `
-                            <div class="small-card">
-                                <span class="save-tag">SAVE 45%</span>
-                                <img src="${img.trim()}">
-                                <h3>${name}</h3>
-                                <p class="price">Rs. ${price}</p>
-                            </div>`;
-
-                        // 2. Lambi Detail Load Karein
-                        details.innerHTML += `
-                            <div class="long-detail">
-                                <img src="${img.trim()}">
-                                <div class="detail-text">
-                                    <h3>${name}</h3>
-                                    <p>${desc}</p>
-                                    <a href="https://wa.me/91XXXXXXXXXX?text=I want to order ${name}" class="wa-order-btn">ORDER NOW - CASH ON DELIVERY</a>
+                            <div class="product-card">
+                                <div class="badge">SALE 45%</div>
+                                <img src="${image}" alt="${title}">
+                                <h3>${title}</h3>
+                                <div class="price-tag">
+                                    <span class="current-price">Rs. ${price}</span>
+                                    <span class="old-price">Rs. ${parseInt(price) + 500}</span>
                                 </div>
-                            </div>`;
+                            </div>
+                        `;
+
+                        // Create Long Landing Block
+                        landing.innerHTML += `
+                            <div class="landing-block">
+                                <img src="${image}" alt="${title}">
+                                <div class="landing-info">
+                                    <h2>${title}</h2>
+                                    <p>${desc}</p>
+                                    <a href="https://wa.me/91XXXXXXXXXX?text=Hello, I want to order ${title}" class="order-button">
+                                        WhatsApp Par Order Karein (COD)
+                                    </a>
+                                </div>
+                            </div>
+                        `;
                     }
                 });
-            } catch (e) { console.error("Data load nahi hua"); }
+            } catch (err) {
+                console.error("Data fetch error:", err);
+            }
         }
-        loadStore();
+        fetchStoreData();
     </script>
 </body>
 </html>
